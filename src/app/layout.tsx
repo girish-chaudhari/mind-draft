@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {  Geist_Mono, IBM_Plex_Mono, Gabriela, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/custom/header";
+import Footer from "@/components/custom/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+const gabreiela = Gabriela({
+  variable: "--font-gabriela",
+  weight: ["400"],
   subsets: ["latin"],
 });
 
@@ -25,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${geistMono.variable} ${gabreiela.variable} ${ibmPlexMono.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
